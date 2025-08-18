@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { ProductDropdown } from "../features/dropdowns/ProductDropdown";
-import { productCards } from "../../constants/products";
+import { ProductDropdown } from "../components/features/dropdowns/ProductDropdown";
+import { productCards } from "../constants/products";
 import Image from "next/image";
 
 export function Header({ children }) {

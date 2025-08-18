@@ -1,6 +1,6 @@
 "use client";
 
-import { dashboardFeatures, dashboardContent } from "../../../constants/dashboard";
+import { dashboardFeatures, dashboardContent } from "../../constants/dashboard";
 
 export function Features() {
   return (

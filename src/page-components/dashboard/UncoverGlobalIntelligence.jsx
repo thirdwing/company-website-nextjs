@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { uncoverGlobalContent } from "../../../constants/dashboard";
-import { CollapsibleCard } from "@/components/features/CollapsibleCard";
+import { uncoverGlobalContent } from "../../constants/dashboard";
+import { CollapsibleCard } from "../../components/features/CollapsibleCard";
 
 export function UncoverGlobalIntelligence() {
   const [openCard, setOpenCard] = useState("medtech"); // First card open by default

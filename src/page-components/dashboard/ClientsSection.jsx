@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { clients } from "../../../constants/dashboard";
+import { clients } from "../../constants/dashboard";
 
 export function ClientsSection() {
   return (
