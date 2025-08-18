@@ -5,8 +5,8 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Hero />
       <Features />
-      <UncoverGlobalIntelligence />
       <ClientsSection />
+      <UncoverGlobalIntelligence />
     </div>
   );
 }
