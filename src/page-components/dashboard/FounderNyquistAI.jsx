@@ -1,14 +1,53 @@
 "use client";
 
 import { founderNyquistAI } from "../../constants/dashboard";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export function FounderNyquistAI() {
+  const { ref, isInView } = useScrollAnimation(0.2);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 md:py-25 bg-gray-100">
+    <motion.section 
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="py-16 sm:py-20 md:py-25 bg-gray-100"
+    >
       <div className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center ">
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center "
+        >
           {/* Left Column - Text Content */}
-          <div className="w-full lg:w-[40%] space-y-6">
+          <motion.div 
+            variants={itemVariants}
+            className="w-full lg:w-[40%] space-y-6"
+          >
             {/* Small Heading */}
             <div className="text-black text-sm mt-7 font-medium uppercase tracking-wider">
               {founderNyquistAI.heading}
@@ -39,18 +78,21 @@ export function FounderNyquistAI() {
                 alt="Arrow right"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Image */}
-          <div className="w-full lg:w-[60%] flex justify-center lg:justify-end">
+          <motion.div 
+            variants={itemVariants}
+            className="w-full lg:w-[60%] flex justify-center lg:justify-end"
+          >
             <img 
               src={founderNyquistAI.image.src}
               alt={founderNyquistAI.image.alt}
               className="rounded-lg max-w-full h-auto"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

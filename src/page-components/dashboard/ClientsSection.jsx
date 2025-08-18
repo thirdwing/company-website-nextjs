@@ -2,24 +2,64 @@
 
 import Image from "next/image";
 import { clients } from "../../constants/dashboard";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export function ClientsSection() {
+  const { ref, isInView } = useScrollAnimation(0.2);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 md:py-25 bg-white">
+    <motion.section 
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="py-16 sm:py-20 md:py-25 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-left mb-12">
+        <motion.div 
+          variants={itemVariants}
+          className="text-left mb-12"
+        >
           <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-6 leading-[1.2em] tracking-wide">
             Our Valued Clients
           </div>
           <div className="text-[32px] font-normal leading-[1.2em] mb-5">
             Global Innovators in Life Sciences
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 lg:gap-12">
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 lg:gap-12"
+        >
           {clients.map((client, index) => (
-            <a
+            <motion.a
               key={index}
+              variants={itemVariants}
               href={client.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -37,10 +77,10 @@ export function ClientsSection() {
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

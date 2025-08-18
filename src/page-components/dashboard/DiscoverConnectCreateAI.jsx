@@ -1,20 +1,59 @@
 "use client";
 
 import { discoverConnectCreateAI } from "../../constants/dashboard";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export function DiscoverConnectCreateAI() {
+  const { ref, isInView } = useScrollAnimation(0.2);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 md:py-25 bg-[#001224]">
+    <motion.section 
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="py-16 sm:py-20 md:py-25 bg-[#001224]"
+    >
       <div className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Title */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <motion.div 
+          variants={itemVariants}
+          className="text-center mb-8 sm:mb-12 md:mb-16"
+        >
           <h1 className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-semibold capitalize text-white">
             {discoverConnectCreateAI.title}
           </h1>
-        </div>
+        </motion.div>
 
         {/* Content Layout - Three Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <motion.div 
+          variants={itemVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+        >
           {/* First Column - Subtitle */}
           <div className="flex items-center">
             <div className="text-white">
@@ -69,8 +108,8 @@ export function DiscoverConnectCreateAI() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
