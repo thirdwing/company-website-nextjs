@@ -32,7 +32,7 @@ export function Header({ children }) {
 
   return (
     <header className="bg-[#001224] text-white shadow-lg sticky top-0 z-50 py-3 relative">
-      <div className="max-w-[1150px] mx-auto px-3">
+      <div className="max-w-[1222px] mx-auto px-3">
         <div className="flex justify-between items-center h-16">
 
           <div className="flex items-center">

@@ -12,7 +12,7 @@ export function UncoverGlobalIntelligence() {
   };
 
   return (
-    <section className="relative py-16 bg-[#0A1121] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-25 bg-[#0A1121] overflow-hidden">
       <div className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <div className="text-3xl md:text-4xl lg:text-[48px] leading-[1.2] font-semibold tracking-[1px] align-middle capitalize text-[#F5F5F5]">

@@ -5,7 +5,7 @@ import { clients } from "../../constants/dashboard";
 
 export function ClientsSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 sm:py-20 md:py-25 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left mb-12">
           <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-6 leading-[1.2em] tracking-wide">
@@ -30,12 +30,10 @@ export function ClientsSection() {
                 maxWidth: '200px'
               }}
             >
-              <div className="relative w-full h-12 sm:h-16 lg:h-20 flex items-center justify-center p-2">
-                <Image
+              <div className="relative w-full  flex items-center justify-center p-2">
+                <img
                   src={client.logo}
                   alt={client.alt}
-                  width={196}
-                  height={160}
                   className="max-w-full max-h-full object-contain"
                 />
               </div>

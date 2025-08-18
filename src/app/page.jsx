@@ -1,4 +1,4 @@
-import { Hero, Features, ClientsSection, UncoverGlobalIntelligence } from '@/page-components';
+import { Hero, Features, ClientsSection, UncoverGlobalIntelligence, WorldWideCoverage, SciencesLeadersWorldwide, DiscoverConnectCreateAI, FounderNyquistAI, ExperienceTheFuture } from '@/page-components';
 
 export default function Home() {
   return (
@@ -7,6 +7,11 @@ export default function Home() {
       <Features />
       <ClientsSection />
       <UncoverGlobalIntelligence />
+      <WorldWideCoverage />
+      <SciencesLeadersWorldwide />
+      <DiscoverConnectCreateAI />
+      <FounderNyquistAI />
+      <ExperienceTheFuture />
     </div>
   );
 }

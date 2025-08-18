@@ -1,1 +1,1 @@
-export { Hero, Features, ClientsSection, UncoverGlobalIntelligence } from './dashboard';
+export { Hero, Features, ClientsSection, UncoverGlobalIntelligence, WorldWideCoverage, SciencesLeadersWorldwide, DiscoverConnectCreateAI, FounderNyquistAI, ExperienceTheFuture } from './dashboard';

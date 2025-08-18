@@ -14,7 +14,7 @@ export function CollapsibleCard({
     <div className="">
       {/* Always visible header */}
       <div 
-        className="flex items-start space-x-4 p-6 cursor-pointer transition-colors duration-200"
+        className="flex items-center space-x-4 p-6 cursor-pointer transition-colors duration-200"
         onClick={onToggle}
       >
         <div className="flex-shrink-0">

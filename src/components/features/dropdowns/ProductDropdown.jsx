@@ -8,6 +8,7 @@ import { productCards, footerContent } from "../../../constants";
 export function ProductDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -16,17 +17,43 @@ export function ProductDropdown() {
       }
     }
 
+    function handleEscapeKey(event) {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    }
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscapeKey);
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150); // Small delay to prevent accidental closing
+  };
 
   return (
     <div
       className="relative"
       ref={dropdownRef}
-      onMouseEnter={() => setIsOpen(true)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <button
         className={`px-3 py-2 px-3 py-2 text-md font-medium transition-colors no-underline flex items-center ${
@@ -57,7 +84,7 @@ export function ProductDropdown() {
       {/* Products Dropdown */}
       {isOpen && (
         <>
-          <div className="bg-[#E8E8E8] absolute top-full left-0 mt-2 w-[90vw] max-w-[1222px] lg:w-[900px] xl:w-[1222px] lg:ml-[-96px] xl:ml-[-230px] mt-[27px] shadow-lg z-50 border border-gray-200 overflow-hidden">
+          <div className="bg-[#E8E8E8] absolute top-full left-0 mt-2 w-[90vw] max-w-[1222px] lg:w-[900px] xl:w-[1222px] lg:ml-[-96px] xl:ml-[-230px] mt-[24px] shadow-lg z-50 border border-gray-200 overflow-hidden">
             {/* Main Content Cards Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
