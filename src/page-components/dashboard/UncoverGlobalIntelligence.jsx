@@ -43,7 +43,7 @@ export function UncoverGlobalIntelligence() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="relative py-16 sm:py-20 md:py-25 bg-[#0A1121] overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-25 bg-[#0A1121] overflow-hidden"
     >
       <div className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 

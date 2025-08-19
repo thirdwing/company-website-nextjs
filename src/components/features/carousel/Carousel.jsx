@@ -66,7 +66,7 @@ export function Carousel({
                 <>
                     <button
                         onClick={prevItem}
-                        className={`absolute z-50 w-6 h-6 cursor-pointer bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors shadow-lg top-[120px] lg:top-[180px] ${arrowClassName}`}
+                        className={`absolute z-40 w-6 h-6 cursor-pointer bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors shadow-lg top-[120px] lg:top-[180px] ${arrowClassName}`}
                         aria-label="Previous item"
                         style={{
                             left: '-12px',
@@ -78,7 +78,7 @@ export function Carousel({
 
                     <button
                         onClick={nextItem}
-                        className={`absolute z-50 w-6 h-6 cursor-pointer bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors shadow-lg top-[120px] lg:top-[180px] ${arrowClassName}`}
+                        className={`absolute z-40 w-6 h-6 cursor-pointer bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors shadow-lg top-[120px] lg:top-[180px] ${arrowClassName}`}
                         aria-label="Next item"
                         style={{
                             right: '-12px',
