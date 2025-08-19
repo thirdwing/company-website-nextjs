@@ -37,7 +37,7 @@ export function ClientsSection() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="py-16 sm:py-20 md:py-25 bg-white"
+      className="py-12 sm:py-16 md:py-20 lg:py-25 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 

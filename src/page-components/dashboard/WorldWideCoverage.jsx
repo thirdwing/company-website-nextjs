@@ -36,14 +36,14 @@ export function WorldWideCoverage() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="py-16 sm:py-20 md:py-25 bg-[#F5F5F5]"
+      className="py-12 sm:py-16 md:py-20 lg:py-25 bg-[#F5F5F5]"
     >
       <div className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           variants={itemVariants}
           className="text-center mb-8"
         >
-          <div className="text-[40px] font-medium leading-[1.2em] mb-4">
+          <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-medium leading-[1.2em] mb-4">
             {worldWideCoverage.title}
           </div>
         </motion.div>
@@ -82,10 +82,10 @@ export function WorldWideCoverage() {
               variants={itemVariants}
               className="text-center"
             >
-              <div className="text-[40px] font-medium leading-[1.2em] mb-4">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-medium leading-[1.2em] mb-4">
                 {stat.value}
               </div>
-              <div className="text-[16px] font-medium leading-[1.2em] tracking-[1.2px]">
+              <div className="text-sm sm:text-base md:text-[16px] font-medium leading-[1.2em] tracking-[1.2px]">
                 {stat.label}
               </div>
             </motion.div>
