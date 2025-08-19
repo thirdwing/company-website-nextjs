@@ -43,10 +43,10 @@ export function Features() {
           variants={itemVariants}
           className=" mb-12"
         >
-          <div className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-medium leading-[1.2em] tracking-wider mb-8">
+          <div className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-medium leading-[1.2em] tracking-wide mb-8">
             {dashboardContent.title}
           </div>
-          <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] font-light leading-[1em] tracking-wider text-[#000000]" >
+          <div className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] font-light leading-[1em] tracking-wider text-[#000000]" >
             {dashboardContent.subtitle}
           </div>
         </motion.div>

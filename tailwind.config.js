@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'hk-grotesk': ['HK Grotesk', 'sans-serif'],
+        'sans': ['HK Grotesk', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
