@@ -61,14 +61,30 @@ export function Hiring() {
             variants={itemVariants}
             className="w-full lg:w-1/2 flex flex-col gap-4 justify-center items-center"
           >
-            {hiringContent.positions.map((position) => (
-              <button
-                key={position.id}
-                className="bg-white text-black px-6 mx-auto py-2 max-w-[270px] cursor-pointer !w-[100%] rounded-full font-semibold text-[14px] sm:text-[16px] md:text-[18px] hover:bg-gray-100 hover:-translate-y-1 transition-all duration-300 ease-in-out sm:w-auto sm:self-start"
-              >
-                {position.title}
-              </button>
-            ))}
+            {hiringContent.positions.map((position) => {
+              const getPositionLink = (positionTitle) => {
+                switch (positionTitle.toLowerCase()) {
+                  case 'sales director':
+                    return 'https://nyquistdata.notion.site/Sales-Director-ba35175aa19a4649b54aea3cc6f8a97d';
+                  case 'product manager':
+                    return 'https://nyquistdata.notion.site/Product-Manager-5ae5480e0ac44a57a6bcbd50cea93120';
+                  case 'product design lead':
+                    return 'https://nyquistdata.notion.site/Product-Design-Lead-47e7bc05fef04e73becd8047d7acaf73';
+                  default:
+                    return '#';
+                }
+              };
+
+              return (
+                <button
+                  key={position.id}
+                  onClick={() => window.open(getPositionLink(position.title), '_blank')}
+                  className="bg-white text-black px-6 mx-auto py-2 max-w-[270px] cursor-pointer !w-[100%] rounded-full font-semibold text-[14px] sm:text-[16px] md:text-[18px] hover:bg-gray-100 hover:-translate-y-1 transition-all duration-300 ease-in-out sm:w-auto sm:self-start"
+                >
+                  {position.title}
+                </button>
+              );
+            })}
           </motion.div>
         </div>
       </div>

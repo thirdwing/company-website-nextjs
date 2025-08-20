@@ -31,7 +31,7 @@ export function Header({ children }) {
   };
 
   return (
-    <header className="bg-[#001224] text-white shadow-lg sticky top-0 z-50 py-3 relative">
+    <header className="bg-[#001224] text-white shadow-2xl shadow-black/50 sticky top-0 z-50 py-3 relative" style={{ boxShadow: '0 px 2px 0px rgba(0, 0, 0, 0.2), 0 10px 5px 0px rgba(0, 0, 0, 0.4)' }}>
       <div className="max-w-[1222px] mx-auto px-3">
         <div className="flex justify-between items-center h-16">
 

@@ -34,7 +34,14 @@ export function UncoverGlobalIntelligence() {
   };
 
   const handleToggle = (cardId) => {
-    setOpenCard(openCard === cardId ? null : cardId);
+    // If clicking on the currently open card, close it
+    if (openCard === cardId) {
+      setOpenCard(null);
+    } 
+    // If clicking on a different card, close the current one and open the new one
+    else {
+      setOpenCard(cardId);
+    }
   };
 
   return (
@@ -59,7 +66,7 @@ export function UncoverGlobalIntelligence() {
         </motion.div>
         <motion.div 
           variants={itemVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-[45px]"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-[45px]"
         >
           <motion.div 
             variants={itemVariants}
@@ -76,7 +83,7 @@ export function UncoverGlobalIntelligence() {
 
           <motion.div 
             variants={itemVariants}
-            className=""
+            className="max-h-[400px] overflow-y-auto"
           >
             {uncoverGlobalContent.platforms.map((platform) => (
               <CollapsibleCard

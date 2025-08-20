@@ -3,9 +3,11 @@
 import { experienceTheFuture } from "../../constants/dashboard";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { useRouter } from "next/navigation";
 
 export function ExperienceTheFuture() {
   const { ref, isInView } = useScrollAnimation(0.2);
+  const router = useRouter();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,7 +67,10 @@ export function ExperienceTheFuture() {
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             {/* Primary Button */}
-            <button className="bg-blue-600 hover:bg-white hover:text-black hover:border-1 hover:border-black text-white px-6 sm:px-8 py-2 rounded-full font-semibold cursor-pointer group hover:translate-y-[-2px] transition-transform duration-300 text-sm sm:text-base">
+            <button 
+              onClick={() => router.push('/pricing')}
+              className="bg-blue-600 hover:bg-white hover:text-black hover:border-1 hover:border-black text-white px-6 sm:px-8 py-2 rounded-full font-semibold cursor-pointer group hover:translate-y-[-2px] transition-transform duration-300 text-sm sm:text-base"
+            >
               {experienceTheFuture.buttons[0].text}
             </button>
 
@@ -73,7 +78,10 @@ export function ExperienceTheFuture() {
             <span className="text-black font-medium text-sm sm:text-base">or</span>
 
             {/* Secondary Button */}
-            <button className="bg-white border-1 border-black hover:bg-blue-600 hover:border-blue-600 hover:text-white text-black px-6 sm:px-8 py-2 rounded-full font-semibold cursor-pointer group hover:translate-y-[-2px] transition-transform duration-300 text-sm sm:text-base">
+            <button 
+              onClick={() => window.open('https://meetings.hubspot.com/mw33?uuid=08bb7e64-f3cb-41d4-a6b9-120014167550', '_blank')}
+              className="bg-white border-1 border-black hover:bg-blue-600 hover:border-blue-600 hover:text-white text-black px-6 sm:px-8 py-2 rounded-full font-semibold cursor-pointer group hover:translate-y-[-2px] transition-transform duration-300 text-sm sm:text-base"
+            >
               {experienceTheFuture.buttons[1].text}
             </button>
           </motion.div>
