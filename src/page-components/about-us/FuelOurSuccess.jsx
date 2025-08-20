@@ -40,7 +40,7 @@ export function FuelOurSuccess() {
       className="py-12 sm:py-16 md:py-20 lg:py-25 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div variants={itemVariants} className=" mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-16">
           <div className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] font-medium uppercase tracking-[1.2px] text-black mb-4">
             {fuelOurSuccessContent.title}
           </div>
@@ -51,10 +51,10 @@ export function FuelOurSuccess() {
 
         <motion.div 
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center gap-12 sm:gap-16 lg:gap-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16 lg:gap-20"
         >
           {fuelOurSuccessContent.team.map((member) => (
-            <div key={member.id} className="">
+            <div key={member.id} className="flex flex-col items-center">
               <div className="relative mb-6">
                 <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full bg-blue-50 flex items-center justify-center mx-auto overflow-hidden">
                   <img

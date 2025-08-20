@@ -40,8 +40,8 @@ export function AboutUsCarousel() {
       className="py-12 sm:py-16 md:py-20 lg:py-25 bg-gray-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <div className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-semibold leading-[1.2em] text-black mb-4">
+        <motion.div variants={itemVariants} className="text-center">
+          <div className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-semibold leading-[1.2em] text-black ">
             AI-Driven Life Science Solutions
           </div>
         </motion.div>

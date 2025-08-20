@@ -86,11 +86,11 @@ export function AutoplayCarousel({ slides, autoPlayInterval = 5000 }) {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full h-[500px] overflow-hidden">
       {/* Carousel Container */}
       <div
         ref={carouselRef}
-        className="relative w-full cursor-grab active:cursor-grabbing"
+        className="relative w-full h-full cursor-grab active:cursor-grabbing"
         onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
@@ -106,13 +106,13 @@ export function AutoplayCarousel({ slides, autoPlayInterval = 5000 }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-full"
+            className="w-full h-full flex items-center"
             style={{
               transform: isDragging ? `translateX(${dragEnd - dragStart}px)` : 'translateX(0)',
               transition: isDragging ? 'none' : 'transform 0.3s ease-out'
             }}
           >
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full">
               {/* Left Section - Text Content */}
               <div className="w-full lg:w-[40%] space-y-6 lg:ml-[65px]">
               <div className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] font-medium uppercase tracking-[1.2px] text-black">
@@ -148,10 +148,8 @@ export function AutoplayCarousel({ slides, autoPlayInterval = 5000 }) {
         </AnimatePresence>
       </div>
 
-
-
-      {/* Dots Navigation */}
-      <div className="flex justify-center mt-8 space-x-2">
+      {/* Dots Navigation - Fixed at bottom */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
