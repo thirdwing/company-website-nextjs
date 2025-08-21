@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { pricingPlans, pricingFeatures } from "../../constants/pricing";
 
 export function UncoverGlobalData() {
-  const { ref, isInView } = useScrollAnimation(0.2);
   const [selectedPlan, setSelectedPlan] = useState(2); // MedTech is default (id: 2)
 
   const containerVariants = {
@@ -38,9 +36,8 @@ export function UncoverGlobalData() {
 
   return (
     <motion.section
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate="visible"
       variants={containerVariants}
       className="py-12 sm:py-16 md:py-20 lg:py-25 bg-white"
     >

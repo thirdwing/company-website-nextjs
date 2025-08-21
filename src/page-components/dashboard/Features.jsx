@@ -2,11 +2,8 @@
 
 import { dashboardFeatures, dashboardContent } from "../../constants/dashboard";
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export function Features() {
-  const { ref, isInView } = useScrollAnimation(0.2);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,9 +29,8 @@ export function Features() {
 
   return (
     <motion.section 
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate="visible"
       variants={containerVariants}
       className="py-12 sm:py-16 md:py-20 lg:py-25 bg-gray-50"
     >

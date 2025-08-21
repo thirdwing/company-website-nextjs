@@ -121,7 +121,7 @@ export const uncoverGlobalContent = {
       description: "Our global MedTech platform compiles data from the largest and most influential markets worldwide. From predicate mapping and clinical trial research to adverse event reports and global manufacturing data, you have access to all the necessary information to accelerate your innovation, strategic decision-making, and time to global markets.",
       logo: "/images/logos/global-medtech.svg",
       logoAlt: "Global Medtech Logo",
-      link: "#"
+      link: "/nyquistmed"
     },
     {
       id: "pharma",

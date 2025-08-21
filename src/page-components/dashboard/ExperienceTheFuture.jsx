@@ -5,9 +5,13 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { useRouter } from "next/navigation";
 
-export function ExperienceTheFuture() {
+export function ExperienceTheFuture({ bgColor }) {
   const { ref, isInView } = useScrollAnimation(0.2);
   const router = useRouter();
+  
+  // Determine text color based on background color
+  const isDarkBackground = bgColor && (bgColor.includes('bg-[#001224]') || bgColor.includes('bg-black') || bgColor.includes('bg-gray-900') || bgColor.includes('bg-slate-900'));
+  const textColor = isDarkBackground ? 'text-white' : 'text-black';
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,7 +42,7 @@ export function ExperienceTheFuture() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="py-12 sm:py-16 md:py-20 lg:py-25 bg-white"
+      className={`py-12 sm:py-16 md:py-20 lg:py-25 ${bgColor ?? "bg-white"}`}
     >
       <div className="max-w-[1250px] mx-auto px-4 sm:px-6 md:px-8">
         <motion.div 
@@ -48,7 +52,7 @@ export function ExperienceTheFuture() {
           {/* Main Title */}
           <motion.div 
             variants={itemVariants}
-            className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[50px] font-medium  capitalize leading-[1.2em] text-black mb-4 sm:mb-10 md:mb-12"
+            className={`text-[32px] sm:text-[40px] md:text-[50px] lg:text-[50px] font-medium  capitalize leading-[1.2em] ${textColor} mb-4 sm:mb-6 md:mb-8`}
           >
             {experienceTheFuture.title}
           </motion.div>
@@ -56,7 +60,7 @@ export function ExperienceTheFuture() {
           {/* Subtitle */}
           <motion.div 
             variants={itemVariants}
-            className="text-[14px] sm:text-[16px] md:text-[18px] font-normal text-black mb-3 sm:mb-4 md:mb-[28px]"
+            className={`text-[14px] sm:text-[16px] md:text-[18px] font-normal ${textColor} mb-3 sm:mb-4 md:mb-[28px]`}
           >
             {experienceTheFuture.subtitle}
           </motion.div>
@@ -75,7 +79,7 @@ export function ExperienceTheFuture() {
             </button>
 
             {/* Separator */}
-            <span className="text-black font-medium text-sm sm:text-base">or</span>
+            <span className={`${textColor} font-medium text-sm sm:text-base`}>or</span>
 
             {/* Secondary Button */}
             <button 

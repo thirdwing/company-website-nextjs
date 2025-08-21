@@ -83,7 +83,7 @@ export function UncoverGlobalIntelligence() {
 
           <motion.div 
             variants={itemVariants}
-            className="max-h-[400px] overflow-y-auto"
+            className="max-h-[400px] overflow-y-auto scrollbar-hide"
           >
             {uncoverGlobalContent.platforms.map((platform) => (
               <CollapsibleCard

@@ -42,8 +42,13 @@ export function CollapsibleCard({
       {/* Collapsible content */}
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'opacity-100' : 'opacity-0'
         }`}
+        style={{
+          maxHeight: isOpen ? 'none' : '0px',
+          transform: isOpen ? 'translateY(0)' : 'translateY(-10px)',
+          transition: 'max-height 300ms ease-in-out, opacity 300ms ease-in-out, transform 300ms ease-in-out'
+        }}
       >
         <div className="px-6 pb-6">
           <div className="text-[14px] text-[#F5F5F5] leading-[20px] font-medium tracking-[0px] align-middle sm:text-[15px] sm:leading-[22px] md:text-[15.5px] md:leading-[23px] lg:text-[16px] lg:leading-[24px] mb-6">
