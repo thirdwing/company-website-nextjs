@@ -1,13 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { ourPurposeContent, ourInvestorsContent } from "../../constants/AboutUs";
 import Image from "next/image";
 
 export function OurPurpose() {
-    const { ref, isInView } = useScrollAnimation(0.3);
-
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -33,9 +30,8 @@ export function OurPurpose() {
 
     return (
         <motion.section
-            ref={ref}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate="visible"
             variants={containerVariants}
             className="py-12 sm:py-16 md:py-20 lg:py-25 bg-white"
         >

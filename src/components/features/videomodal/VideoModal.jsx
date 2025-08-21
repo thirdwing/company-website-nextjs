@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-export function VideoModal({ isOpen, onClose }) {
+export function VideoModal({ isOpen, onClose, videoId }) {
   if (!isOpen) return null;
 
   return (
@@ -35,7 +35,7 @@ export function VideoModal({ isOpen, onClose }) {
           {/* Video Container */}
           <div className="relative w-full h-0 pb-[56.25%]">
             <iframe
-              src="https://player.vimeo.com/video/846077417?h=728f511831ce4bd185d75a6fb8250688&autoplay=1"
+              src={`https://player.vimeo.com/video/${videoId}?h=fl&fe=sh&autoplay=1`}
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"

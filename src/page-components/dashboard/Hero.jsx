@@ -92,6 +92,7 @@ export function Hero() {
       <VideoModal 
         isOpen={isVideoModalOpen} 
         onClose={() => setIsVideoModalOpen(false)} 
+        videoId="846077417"
       />
     </motion.section>
   );

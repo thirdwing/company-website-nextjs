@@ -7,7 +7,7 @@ export const productCards = [
   {
     title: "NYQUIST MEDTECH",
     description: "Nyquist MedTech provides comprehensive global clinical, regulatory, and medical device data across key markets, from large markets like the US to emerging markets like China.",
-    link: "#",
+    link: "/nyquistmed",
   },
   {
     title: "NYQUIST IQ",

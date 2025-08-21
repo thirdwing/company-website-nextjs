@@ -134,22 +134,22 @@ export function Carousel({
 }
 
 // Specific carousel components for common use cases
-export function TestimonialCarousel({ testimonials, ...props }) {
+export function TestimonialCarousel({ testimonials, bgColor, ...props }) {
     const renderTestimonial = (testimonial) => (
         <div className="flex">
             <div className="w-[6%] lg:w-[10%]"></div>
 
 
             <div className="w-[94%] lg:w-[90%]">
-                <blockquote className="text-black text-lg leading-relaxed mb-6">
+                <blockquote className={`${bgColor ? 'text-white' : 'text-black'} text-lg leading-relaxed mb-6`}>
                     "{testimonial.text}"
                 </blockquote>
 
                 <div className="mt-auto">
-                    <div className="font-bold text-black text-lg">
+                    <div className={`font-bold ${bgColor ? 'text-white' : 'text-black'} text-lg`}>
                         {testimonial.author}
                     </div>
-                    <div className="text-black text-base">
+                    <div className={`${bgColor ? 'text-white' : 'text-black'} text-base`}>
                         {testimonial.title}
                     </div>
                 </div>
