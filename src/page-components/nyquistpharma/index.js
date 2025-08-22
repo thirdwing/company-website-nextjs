@@ -1,0 +1,1 @@
+export { NyquistPharmaPage } from './NyquistPharmaPage';

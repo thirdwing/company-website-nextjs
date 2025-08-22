@@ -4,3 +4,4 @@ export { aboutUsContent, foundersData, ourPurposeContent, ourInvestorsContent, w
 export { pricingHero, pricingPlans, pricingFeatures, uniqueSolution, makeBetterDecisions, frequentlyAskedQuestions } from './pricing';
 export { contactContent } from './contact';
 export { loginPlatforms, navigationLinks, headerConfig } from './header';
+export { nyquistPharmaData } from './nyquistPharma';

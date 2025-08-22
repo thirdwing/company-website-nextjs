@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { ProductDropdown } from "../components/features/dropdowns/ProductDropdown";
 import { productCards, loginPlatforms, navigationLinks, headerConfig } from "../constants";
+import { getDynamicProductCards } from "../utils/routeUtils";
 import Image from "next/image";
 
 export function Header({ children }) {
@@ -106,9 +107,9 @@ export function Header({ children }) {
               <Link
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-2 text-md font-medium transition-colors no-underline ${isActive(link.href)
-                  ? "text-blue-400 hover:text-blue-300"
-                  : "text-white hover:text-gray-300"
+                className={`px-3 py-2 text-lg font-semibold transition-colors no-underline cursor-pointer ${isActive(link.href)
+                  ? "text-[#ff9595] hover:text-blue-200"
+                  : "text-white hover:text-blue-200"
                   }`}
               >
                 {link.title}
@@ -121,7 +122,7 @@ export function Header({ children }) {
               href={headerConfig.demoButton.href}
               target={headerConfig.demoButton.target}
               rel="noopener noreferrer"
-              className="text-sm bg-white text-black px-[27px] py-[7px] rounded-full font-bold hover:bg-gray-200 hover:!text-black transition-colors no-underline text-center"
+              className="text-sm bg-white text-black px-[27px] py-[7px] rounded-full font-bold hover:bg-gray-200 hover:!text-black transition-colors no-underline text-center cursor-pointer"
             >
               {headerConfig.demoButton.text}
             </a>
@@ -132,7 +133,7 @@ export function Header({ children }) {
               onMouseLeave={handleLoginMouseLeave}
             >
               <button
-                className={`text-white hover:text-gray-300 px-3 py-2 cursor-pointer text-md font-medium flex items-center ${isLoginDropdownOpen ? "text-blue-400 hover:text-blue-300" : ""}`}
+                className={`px-3 py-2 cursor-pointer text-lg font-semibold flex items-center ${isLoginDropdownOpen ? "text-[#ff9595] hover:text-blue-200" : "text-white hover:text-blue-200"}`}
                 onClick={toggleLoginDropdown}
               >
                 {headerConfig.loginButton.text}
@@ -166,6 +167,7 @@ export function Header({ children }) {
                         href={platform.href}
                         className={`block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-600 transition-all duration-200 group relative overflow-hidden ${index < loginPlatforms.length - 1 ? 'border-b border-gray-100' : ''
                           }`}
+                          target="_blank"
                       >
                         {/* Hover background effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -288,36 +290,60 @@ export function Header({ children }) {
                       : 'max-h-0 opacity-0'
                     }`}>
                     <div className="py-2 space-y-4 max-h-[250px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
-                      {productCards.map((product, index) => (
-                        <div key={index} className="px-6 py-3 border-b border-gray-700 last:border-b-0 group hover:bg-gray-800/50 transition-colors duration-200 rounded-md">
-                          <h4 className="text-sm font-bold text-white uppercase mb-2 group-hover:text-blue-400 transition-colors duration-200">
-                            {product.title}
-                          </h4>
-                          <p className="text-xs text-gray-300 mb-3 leading-relaxed group-hover:text-gray-200 transition-colors duration-200">
-                            {product.description}
-                          </p>
-                          <a
-                            href={product.link}
-                            className="text-[#007bff] text-xs font-medium hover:underline inline-flex items-center group/link hover:text-blue-300 transition-all duration-200"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            <span className="group-hover/link:translate-x-1 transition-transform duration-200">Learn more</span>
-                            <svg
-                              className="ml-1 h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-200"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
+                      {getDynamicProductCards(pathname).map((product, index) => {
+                        const isActive = pathname === product.link;
+                        return (
+                          <div key={index} className={`px-6 py-3 border-b border-gray-700 last:border-b-0 group transition-colors duration-200 rounded-md ${
+                            isActive 
+                              ? 'bg-blue-900/30 border-l-4 border-l-blue-400' 
+                              : 'hover:bg-gray-800/50'
+                          }`}>
+                            <h4 className={`text-sm font-bold uppercase mb-2 transition-colors duration-200 ${
+                              isActive 
+                                ? 'text-blue-400' 
+                                : 'text-white group-hover:text-blue-400'
+                            }`}>
+                              {product.title}
+                              {isActive && (
+                                <span className="ml-2 text-xs text-blue-300 font-normal">(Current)</span>
+                              )}
+                            </h4>
+                            <p className={`text-xs mb-3 leading-relaxed transition-colors duration-200 ${
+                              isActive 
+                                ? 'text-blue-200' 
+                                : 'text-gray-300 group-hover:text-gray-200'
+                            }`}>
+                              {product.description}
+                            </p>
+                            <a
+                              href={product.link}
+                              className={`text-xs font-medium hover:underline inline-flex items-center group/link transition-all duration-200 ${
+                                isActive 
+                                  ? 'text-blue-300 hover:text-blue-200' 
+                                  : 'text-[#007bff] hover:text-blue-300'
+                              }`}
+                              onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </a>
-                        </div>
-                      ))}
+                              <span className="group-hover/link:translate-x-1 transition-transform duration-200">
+                                {isActive ? 'View page' : 'Learn more'}
+                              </span>
+                              <svg
+                                className="ml-1 h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-200"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        );
+                      })}
 
                       {/* Demo Videos Section */}
                       <div className="px-6 py-3 border-t border-gray-700">

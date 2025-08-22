@@ -50,7 +50,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/nyquist-pharma" 
+                  href="/nyquistpharma" 
                   className="text-gray-300 hover:text-white transition-colors no-underline"
                 >
                   Nyquist Pharma
