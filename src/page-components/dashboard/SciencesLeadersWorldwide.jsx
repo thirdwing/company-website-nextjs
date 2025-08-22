@@ -42,12 +42,12 @@ export function SciencesLeadersWorldwide({ bgColor, parentBg }) {
       {/* Background with 50/50 split */}
       <div className="absolute inset-0">
         <div className="h-1/2 bg-gray-50"></div>
-        <div className="h-1/2 bg-white"></div>
+        <div className="h-1/2  bg-gray-50"></div>
       </div>
       <div className="relative max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}
-          className={`${bgColor ?? 'bg-white'} rounded-3xl p-8 md:p-12  min-h-[480px]`}
+          className={`${bgColor ?? 'bg-white'} rounded-3xl p-8 md:p-12  min-h-[550px]`}
         >
           <motion.div
             variants={itemVariants}
@@ -58,7 +58,7 @@ export function SciencesLeadersWorldwide({ bgColor, parentBg }) {
               variants={itemVariants}
               className="flex flex-col lg:w-[40%]"
             >
-              <div className={`text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide ${bgColor ? 'text-white' : 'text-black'}  leading-tight mb-6 mt-8`}>
+              <div className={`text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide ${bgColor ? 'text-white' : 'text-black'}  leading-tight mb-6 mt-8`}>
                 {bgColor ?
                   <div className="flex flex-col mt-4">
                     Why Our Clients

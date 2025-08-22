@@ -2,12 +2,26 @@ export const productCards = [
   {
     title: "NYQUIST PHARMA",
     description: "Nyquist Pharma serves as your extensive resource for clinical pipeline and on-market therapy data in the world's largest markets.",
-    link: "#",
+    link: "/nyquistpharma",
+    routeSpecificContent: {
+      "/nyquistpharma": {
+        title: "NYQUIST PHARMA",
+        description: "You're currently exploring Nyquist Pharma! Discover comprehensive clinical pipeline and on-market therapy data across the world's largest markets.",
+        link: "/nyquistpharma",
+      }
+    }
   },
   {
     title: "NYQUIST MEDTECH",
     description: "Nyquist MedTech provides comprehensive global clinical, regulatory, and medical device data across key markets, from large markets like the US to emerging markets like China.",
     link: "/nyquistmed",
+    routeSpecificContent: {
+      "/nyquistmed": {
+        title: "NYQUIST MEDTECH",
+        description: "You're currently exploring Nyquist MedTech! Access comprehensive global clinical, regulatory, and medical device data across key markets worldwide.",
+        link: "/nyquistmed",
+      }
+    }
   },
   {
     title: "NYQUIST IQ",

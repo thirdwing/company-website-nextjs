@@ -3,25 +3,25 @@ export const loginPlatforms = [
     id: "global-data",
     title: "Global Data Platform",
     description: "Access global market data",
-    href: "#"
+    href: "https://product.nyquistai.com/"
   },
   {
     id: "nyquist-iq",
     title: "Nyquist IQ",
     description: "AI-powered insights",
-    href: "#"
+    href: "https://iq.nyquistai.com/"
   },
   {
     id: "nyquist-scholar",
     title: "Nyquist Scholar",
     description: "Research & analytics",
-    href: "#"
+    href: "https://scholar.nyquistai.com/"
   },
   {
     id: "guidance-iq",
     title: "Guidance IQ",
     description: "Strategic guidance",
-    href: "#"
+    href: "https://guidance.nyquistai.com/"
   }
 ];
 

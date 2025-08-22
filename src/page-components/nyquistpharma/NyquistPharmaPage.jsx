@@ -1,17 +1,17 @@
 "use client";
 
 import { HeroSection } from "../../components/product-page-generic/HeroSection";
-import { FeaturesSection } from "../../components/product-page-generic/FeaturesSection";
-import { InnovationSection } from "../../components/product-page-generic/InnovationSection";
-import { UnparallelGlobalData } from "../../components/product-page-generic/UnparallelGlobalData";
-import { RoadmapSection } from "../../components/product-page-generic/RoadmapSection";
+import { FeaturesSection  } from "../../components/product-page-generic/FeaturesSection";
+import { InnovationSection  } from "../../components/product-page-generic/InnovationSection";
+import { UnparallelGlobalData  } from "../../components/product-page-generic/UnparallelGlobalData";
+import { RoadmapSection  } from "../../components/product-page-generic/RoadmapSection";
 import { ExperienceTheFuture, SciencesLeadersWorldwide } from '../dashboard';
 import { FounderNyquistAI } from '../dashboard';
 import { FrequentlyQuestion } from '../pricing';
-import { nyquistMedData } from '../../constants/nyquistmed';
+import { nyquistPharmaData } from '../../constants/nyquistPharma';
 
-export function NyquistMedPage() {
-  const { hero, features, flags, globalDataSections, roadmapSections } = nyquistMedData;
+export function NyquistPharmaPage() {
+  const { hero, features, flags, globalDataSections, roadmapSections } = nyquistPharmaData;
 
   return (
     <div className="min-h-screen">
@@ -20,9 +20,9 @@ export function NyquistMedPage() {
         title={hero.title}
         description={hero.description}
         ctaButton={hero.ctaButton}
-        imageSrc="/images/hero/nyquitmed-hero.png"
-        imageAlt="Nyquist MedTech Hero Laptop"
-        videoId="846077417"
+        imageSrc="/images/hero/nyquistpharma-hero.png"
+        imageAlt="Nyquist Pharma Hero"
+        videoId="957152909"
         cursor={true}
       />
 

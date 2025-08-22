@@ -129,7 +129,7 @@ export const uncoverGlobalContent = {
       description: "Our Global Pharma platform contains all information related to on-market interventions in the world's largest markets. It enables you to gain critical market insights, understand global market trends, and create and execute winning regulatory strategies.",
       logo: "/images/logos/global-pharma.svg",
       logoAlt: "Global Pharma Logo",
-      link: "#"
+      link: "/nyquistpharma"
     }
   ],
   dashboardImage: {

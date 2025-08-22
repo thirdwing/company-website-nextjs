@@ -1,9 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { nyquistMedData } from '../../constants/nyquistmed';
 
-export function FeaturesSection() {
+export function FeaturesSection({
+  sections,
+  bgColor = "bg-[#1E4ED8]",
+  containerClassName = "max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8",
+  sectionClassName = "py-12 sm:py-16 md:py-20 lg:py-25"
+}) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -51,16 +55,16 @@ export function FeaturesSection() {
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-25 bg-[#1E4ED8]">
+    <section className={`${sectionClassName} ${bgColor}`}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-[1222px] mx-auto px-4 sm:px-6 lg:px-8"
+        className={containerClassName}
       >
         {/* Small Screen Layout (Single Column) */}
         <div className="block md:hidden space-y-8">
-          {nyquistMedData.features.sections.map((section) => (
+          {sections.map((section) => (
             <motion.div key={section.id} variants={itemVariants} className="space-y-4">
               {/* Icon and Title Row */}
               <div className="flex items-center space-x-4">
@@ -94,31 +98,31 @@ export function FeaturesSection() {
 
         {/* Medium and Large Screen Layout (Multi Column) */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {nyquistMedData.features.sections.map((section) => (
+          {sections.map((section) => (
             <motion.div key={section.id} variants={itemVariants} className="text-center space-y-3">
               {/* Icon */}
               <div className="flex justify-start">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-white">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white">
                   {getIcon(section.icon)}
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl lg:text-2xl font-bold text-white text-left">
+              <h3 className="text-xl font-bold text-white text-left">
                 {section.title}
               </h3>
 
               {/* Points */}
-              <div className="space-y-4 text-left">
+              <div className="space-y-2">
                 {section.points.map((point, index) => (
-                  <motion.div key={index} variants={itemVariants} className="flex items-start space-x-2">
+                  <motion.div key={index} variants={itemVariants} className="flex items-start space-x-3">
                     {/* Checkmark Icon */}
-                    <div className="flex-shrink-0 mt-0.5 lg:mt-1">
+                    <div className="flex-shrink-0 mt-0.5">
                       <img src="/images/icons/tick-icon.svg" alt="check" className="w-5 h-5" />
                     </div>
                     
                     {/* Point Text */}
-                    <p className="text-sm lg:text-base text-white/90 leading-[1.2em]">
+                    <p className="text-sm text-white/90 leading-relaxed text-left">
                       {point}
                     </p>
                   </motion.div>

@@ -4,8 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import { ProductCard } from "./ProductCard";
 import { DropdownFooter } from "./DropdownFooter";
 import { productCards, footerContent } from "../../../constants";
+import { getDynamicProductCards } from "../../../utils/routeUtils";
+import { usePathname } from "next/navigation";
 
 export function ProductDropdown() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -56,10 +59,10 @@ export function ProductDropdown() {
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className={`px-3 py-2 px-3 py-2 text-md font-medium transition-colors no-underline flex items-center ${
+        className={`px-3 py-2 px-3 py-2 text-lg font-semibold transition-colors no-underline cursor-pointer flex items-center ${
           isOpen
-            ? "text-blue-400 hover:text-blue-300"
-            : "text-white hover:text-gray-300"
+            ? "text-[#ff9595] hover:text-blue-200"
+            : "text-white hover:text-blue-200"
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -88,13 +91,14 @@ export function ProductDropdown() {
             {/* Main Content Cards Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {productCards.map((product, index) => (
+                {getDynamicProductCards(pathname).map((product, index) => (
                   <ProductCard
                     key={index}
                     title={product.title}
                     description={product.description}
                     link={product.link}
                     isEmpty={product.isEmpty}
+                    isActive={pathname === product.link}
                   />
                 ))}
               </div>

@@ -141,9 +141,9 @@ export function TestimonialCarousel({ testimonials, bgColor, ...props }) {
 
 
             <div className="w-[94%] lg:w-[90%]">
-                <blockquote className={`${bgColor ? 'text-white' : 'text-black'} text-lg leading-relaxed mb-6`}>
+                <div className={`${bgColor ? 'text-white' : 'text-black'} text-xl lg:text-xl leading-relaxed mb-6`}>
                     "{testimonial.text}"
-                </blockquote>
+                </div>
 
                 <div className="mt-auto">
                     <div className={`font-bold ${bgColor ? 'text-white' : 'text-black'} text-lg`}>

@@ -109,8 +109,8 @@ export const nyquistMedData = {
   },
   roadmapSections: [
       {id: 1,
-        "title": "Plan Product Development With Confidence",
-        "category": "Product Roadmap",
+        "heading": "Plan Product Development With Confidence",
+        "title": "Product Roadmap",
         "description": "Preparing a PMA can be slow and cumbersome, but not with Product Roadmap. We simplify the collection, analysis, and extraction of precise insights throughout the entire product launch cycle. Gain a comprehensive view of how prior successes expand indications, modify labels, and improve design seamlessly.",
         "buttonText": "Watch Video",
         image: "road-map-1.webp",
@@ -118,8 +118,8 @@ export const nyquistMedData = {
         videoUrl: "https://vimeo.com/951994920?fl=pl&fe=sh"
       },
       {id: 2,
-        "title": "Automate Competitor Landscape Research",
-        "category": "Similar Devices",
+        "heading": "Automate Competitor Landscape Research",
+        "title": "Similar Devices",
         "description": "Our AI excels at contextual understanding and connecting the dots. Utilize Similar Devices to assess the competitive landscape and effortlessly discover devices from various sectors that address the same indications. With just one click, our AI instantly presents the top five similar devices based on your query.",
         "buttonText": "Watch Video",
         image: "road-map-2.webp",
@@ -127,8 +127,8 @@ export const nyquistMedData = {
         videoUrl: "https://vimeo.com/954414132?fl=pl&fe=sh"
       },
       {id: 3,
-        "title": "Discover Important Risk Signals",
-        "category": "Adverse Events",
+        "heading": "Discover Important Risk Signals",
+        "title": "Adverse Events",
         "description": "Browsing the MAUDE adverse event database can be time-consuming and manual. With adverse events, you gain quick access to essential safety data and critical insights, helping you detect significant risk signals, benchmark against peers, and identify trends from vast data.",
         "buttonText": "Watch Video",
         image: "road-map-3.png",
@@ -136,8 +136,8 @@ export const nyquistMedData = {
         videoUrl: "https://vimeo.com/954416720?fl=pl&fe=sh"
       },
       {id: 4,
-        "title": "Discover And Monitor All Possible OEM Facilities",
-        "category": "Facilities",
+        "heading": "Discover And Monitor All Possible OEM Facilities",
+        "title": "Facilities",
         "description": "Quickly explore the registered OEM facilities available worldwide. Determine which is best for your device by reviewing product manufacturing history, inspections, citations, or recalls. You can also track your own facilities’ inspections and benchmark them against your competitors.",
         "buttonText": "Watch Video",
         image: "road-map-4.webp",
