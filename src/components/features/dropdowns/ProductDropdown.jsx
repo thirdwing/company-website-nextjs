@@ -59,7 +59,7 @@ export function ProductDropdown() {
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className={`px-3 py-2 px-3 py-2 text-lg font-semibold transition-colors no-underline cursor-pointer flex items-center ${
+        className={`px-3 py-2 px-3 py-2 text-[20px] font-medium transition-colors no-underline cursor-pointer flex items-center ${
           isOpen
             ? "text-[#ff9595] hover:text-blue-200"
             : "text-white hover:text-blue-200"
@@ -87,7 +87,7 @@ export function ProductDropdown() {
       {/* Products Dropdown */}
       {isOpen && (
         <>
-          <div className="bg-[#E8E8E8] absolute top-full left-0 mt-2 w-[90vw] max-w-[1180px] lg:w-[900px] xl:w-[1222px] lg:ml-[-96px] xl:ml-[-270px] mt-[24px] shadow-lg z-50 border border-gray-200 overflow-hidden">
+          <div className="bg-[#E8E8E8] absolute top-full left-0 mt-2 w-[90vw] max-w-[1180px] lg:w-[900px] xl:w-[1222px] lg:ml-[-96px] xl:ml-[-220px] mt-[22px] shadow-lg z-50 border border-gray-200 overflow-hidden">
             {/* Main Content Cards Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

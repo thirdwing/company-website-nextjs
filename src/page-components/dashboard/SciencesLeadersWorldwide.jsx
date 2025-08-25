@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { TestimonialCarousel } from "../../components/features/carousel";
 
-export function SciencesLeadersWorldwide({ bgColor, parentBg }) {
+export function SciencesLeadersWorldwide({ bgColor, parentBg, removeMargin }) {
   const { ref, isInView } = useScrollAnimation(0.2);
 
   const containerVariants = {
@@ -37,7 +37,7 @@ export function SciencesLeadersWorldwide({ bgColor, parentBg }) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className={`relative py-12 sm:py-16 md:py-20 lg:py-25 ${parentBg ?? 'bg-blue-600'} ${bgColor ? 'mt-[-50px] sm:mt-[-50px] md:mt-[-50px] lg:mt-[-120px]' : ''}`}
+      className={`relative py-12 sm:py-16 md:py-20 lg:py-25 ${parentBg ?? 'bg-blue-600'} ${bgColor && !removeMargin ? 'mt-[-50px] sm:mt-[-50px] md:mt-[-50px] lg:mt-[-120px]' : ''}`}
     >
       {/* Background with 50/50 split */}
       <div className="absolute inset-0">

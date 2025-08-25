@@ -5,3 +5,4 @@ export { pricingHero, pricingPlans, pricingFeatures, uniqueSolution, makeBetterD
 export { contactContent } from './contact';
 export { loginPlatforms, navigationLinks, headerConfig } from './header';
 export { nyquistPharmaData } from './nyquistPharma';
+export { nyquistIqData } from './nyquistiq';    
