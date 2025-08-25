@@ -26,7 +26,14 @@ export const productCards = [
   {
     title: "NYQUIST IQ",
     description: "Generative AI platform, Nyquist IQ, offers a solution by automating data analysis, synthesis, and summarization tasks, making it easier to uncover insights from research papers, reports, and meetings.",
-    link: "#",
+    link: "/nyquistiq",
+    routeSpecificContent: {
+      "/nyquistiq": {
+        title: "NYQUIST IQ",
+        description: "You're currently exploring Nyquist IQ! Discover how Nyquist IQ can help you automate data analysis, synthesis, and summarization tasks, making it easier to uncover insights from research papers, reports, and meetings.",
+        link: "/nyquistiq",
+      }
+    }
   },
   {
     title: "NYQUIST SCHOLAR",

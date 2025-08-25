@@ -100,14 +100,14 @@ export function Header({ children }) {
             </Link>
           </div>
 
-          <nav className="hidden lg:flex space-x-4">
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-4 lg:space-x-2">
             <ProductDropdown />
 
             {navigationLinks.map((link) => (
               <Link
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-2 text-lg font-semibold transition-colors no-underline cursor-pointer ${isActive(link.href)
+                className={`px-3 py-2 text-base xl:text-[20px] lg:text-base font-medium transition-colors no-underline cursor-pointer ${isActive(link.href)
                   ? "text-[#ff9595] hover:text-blue-200"
                   : "text-white hover:text-blue-200"
                   }`}
@@ -122,7 +122,7 @@ export function Header({ children }) {
               href={headerConfig.demoButton.href}
               target={headerConfig.demoButton.target}
               rel="noopener noreferrer"
-              className="text-sm bg-white text-black px-[27px] py-[7px] rounded-full font-bold hover:bg-gray-200 hover:!text-black transition-colors no-underline text-center cursor-pointer"
+              className="text-md bg-white text-black px-[27px] py-[7px] rounded-full font-bold hover:bg-gray-200 hover:!text-black transition-colors no-underline text-center cursor-pointer"
             >
               {headerConfig.demoButton.text}
             </a>
@@ -133,7 +133,7 @@ export function Header({ children }) {
               onMouseLeave={handleLoginMouseLeave}
             >
               <button
-                className={`px-3 py-2 cursor-pointer text-lg font-semibold flex items-center ${isLoginDropdownOpen ? "text-[#ff9595] hover:text-blue-200" : "text-white hover:text-blue-200"}`}
+                className={`px-3 py-2 cursor-pointer text-base xl:text-[20px] lg:text-base font-medium flex items-center ${isLoginDropdownOpen ? "text-[#ff9595] hover:text-blue-200" : "text-white hover:text-blue-200"}`}
                 onClick={toggleLoginDropdown}
               >
                 {headerConfig.loginButton.text}

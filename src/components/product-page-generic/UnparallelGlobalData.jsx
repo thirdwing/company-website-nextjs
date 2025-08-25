@@ -6,6 +6,7 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { VideoModal } from '../features/videomodal/VideoModal';
 
 export function UnparallelGlobalData({
+  title,
   flags = { title: "", countries: [] },
   globalDataSections = [],
   bgColor = "bg-white",
@@ -16,26 +17,27 @@ export function UnparallelGlobalData({
 }) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState('');
-  const { ref, isInView } = useScrollAnimation(0.2);
+  const { ref: flagsRef, isInView: flagsInView } = useScrollAnimation(0.2);
+  const { ref: dataRef, isInView: dataInView } = useScrollAnimation(0.2);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.8,
-        staggerChildren: 0.2
+        duration: 0.4,
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: "easeOut"
       }
     }
@@ -53,13 +55,19 @@ export function UnparallelGlobalData({
 
   return (
     <section className={`${sectionClassName} ${bgColor}`}>
+      {title &&
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">
+          {title}
+        </h2>
+      }
+
       {/* Flags Section */}
-      {showFlags && flags.countries && flags.countries.length > 0 && (
-        <motion.div 
-          ref={ref}
+      {showFlags && flags?.countries && flags.countries.length > 0 && (
+        <motion.div
+          ref={flagsRef}
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={flagsInView ? "visible" : "hidden"}
           className={`${containerClassName} mb-16`}
         >
           <motion.div variants={itemVariants} className="text-center mb-8">
@@ -67,13 +75,13 @@ export function UnparallelGlobalData({
               {flags.title}
             </h2>
           </motion.div>
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex justify-center items-center gap-[50px] mb-16 mt-6 flex-wrap"
           >
             {flags.countries.map((country) => (
-              <motion.div 
-                key={country.id} 
+              <motion.div
+                key={country.id}
                 variants={itemVariants}
                 className="flex flex-col items-center"
               >
@@ -92,20 +100,21 @@ export function UnparallelGlobalData({
       )}
 
       {/* Global Data Sections */}
-      <motion.div 
+      <motion.div
+        ref={dataRef}
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={dataInView ? "visible" : "hidden"}
         className={containerClassName}
       >
         {globalDataSections.map((section, index) => (
-          <motion.div 
-            key={section.id} 
+          <motion.div
+            key={section.id}
             variants={itemVariants}
             className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 mb-12 space-y-6 lg:space-y-12"
           >
             {/* Content - alternates between left and right */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className={`w-full lg:w-[60%] space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}
             >
@@ -125,7 +134,7 @@ export function UnparallelGlobalData({
               </motion.p>
 
               {/* CTA Button */}
-              <motion.button 
+              <motion.button
                 variants={itemVariants}
                 className={buttonClassName}
                 onClick={() => openVideoModal(section.videoId)}
@@ -135,13 +144,13 @@ export function UnparallelGlobalData({
             </motion.div>
 
             {/* Image - alternates between right and left */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className={`w-full lg:w-[40%] ${index % 2 === 1 ? 'lg:order-1' : ''}`}
             >
-              <img 
-                src={`/images/hero/${section.image}`} 
-                alt={`${section.section} - ${section.title}`} 
+              <img
+                src={`/images/hero/${section.image}`}
+                alt={`${section.section} - ${section.title}`}
                 className="w-full h-auto rounded-lg shadow-lg "
               />
             </motion.div>
@@ -150,7 +159,7 @@ export function UnparallelGlobalData({
       </motion.div>
 
       {/* Video Modal */}
-      <VideoModal 
+      <VideoModal
         isOpen={isVideoModalOpen}
         onClose={closeVideoModal}
         videoId={currentVideoId}
